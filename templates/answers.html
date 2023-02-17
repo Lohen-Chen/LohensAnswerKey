@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Answers</title>
+  </head>
+  <body>
+   <pre>
+     <h2>Binary Conversion Project(without EC 4)</h2>
+    <code>
+n = input("input a decimal number: ")
+def makebinary(n):
+  n = int(n)
+  output = ""
+  if(n == 0):
+    output = "0"
+  while n >= 1:
+    output = str(n%2) + output 
+    n //=2
+  print(output)
+
+def makeoctal(n):
+  n = int(n)
+  output = ""
+  if(n == 0):
+    output = "0"
+  while n >= 1:
+    output = str(n%8) + output 
+    n //=8
+  print(output)
+
+def makefive(n):
+  n = int(n)
+  output = ""
+  if(n == 0):
+    output = "0"
+  while n >= 1:
+    output = str(n%5) + output 
+    n //=5
+  print(output)
+
+def makehex(n):
+  n = int(n)
+  output = ""
+  if(n == 0):
+    output = "0"
+  while n >= 1:
+    if(n%16 == 10):
+      output = "A" + output 
+    elif(n%16 == 11):
+      output = "B" + output
+    elif(n%16 == 12):
+      output = "C" + output 
+    elif(n%16 == 13):
+      output = "D" + output 
+    elif(n%16 == 14):
+      output = "E" + output 
+    elif(n%16 == 15):
+      output = "F" + output 
+    else:
+      output = str(n%16) + output 
+    n //=16
+  print(output)
+
+makebinary(n)
+makeoctal(n)
+makefive(n)
+makehex(n)
+
+    </code>
+     <h2>Binary Conversion Project EC 4</h2>
+      <code>
+n = int(input("input a decimal number: "))
+b = int(input("input a base number 2-60: "))
+key = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+output = ""
+if(n == 0):
+  output = "0"
+while n >= 1:
+  i = n%b
+  if(i >= 9):
+    output = str(key[i-1]) + output
+  else:
+    output = str(n%b) + output 
+  n //=b
+print(output)
+    </code>
+     <h2>Python Race 1(with challenges)</h2>
+     <code>
+from turtle import *
+from random import randint
+
+penup()
+goto(-140,140)
+speed(10)
+
+red = Turtle()
+red.color('red')
+red.shape('turtle')
+red.penup()
+red.goto(-160,100)
+red.pendown()
+
+blue = Turtle()
+blue.color('blue')
+blue.shape('turtle')
+blue.penup()
+blue.goto(-160,70)
+blue.pendown()
+
+yellow = Turtle()
+yellow.color('yellow')
+yellow.shape('turtle')
+yellow.penup()
+yellow.goto(-160,40)
+yellow.pendown()
+
+green = Turtle()
+green.color('green')
+green.shape('turtle')
+green.penup()
+green.goto(-160,10)
+green.pendown()
+
+for step in range(15):
+  write(step, align='center')
+  right(90)
+  forward(10)
+  pendown()
+  for i in range(11):
+    forward(7.5)
+    penup()
+    forward(7.5)
+    pendown()
+  penup()
+  backward(175)
+  left(90)
+  forward(20)
+
+for turn in range(100):
+  red.forward(randint(1,5))
+  green.forward(randint(1,5))
+  blue.forward(randint(1,5))
+  yellow.forward(randint(1,5))
+     </code>
+     <h2>Python Race 2(No cheating in turtles)</h2>
+      <code>
+from turtle import *
+from random import randint
+
+penup()
+goto(-140,140)
+speed(10)
+
+for step in range(15):
+  write(step, align='center')
+  right(90)
+  forward(10)
+  pendown()
+  for i in range(11):
+    forward(7.5)
+    penup()
+    forward(7.5)
+    pendown()
+  penup()
+  backward(175)
+  left(90)
+  forward(20)
+
+
+red = Turtle()
+red.color('red')
+red.shape('turtle')
+red.penup()
+red.goto(-160,100)
+red.pendown()
+
+blue = Turtle()
+blue.color('blue')
+blue.shape('turtle')
+blue.penup()
+blue.goto(-160,70)
+blue.pendown()
+
+yellow = Turtle()
+yellow.color('yellow')
+yellow.shape('turtle')
+yellow.penup()
+yellow.goto(-160,40)
+yellow.pendown()
+
+green = Turtle()
+green.color('green')
+green.shape('turtle')
+green.penup()
+green.goto(-160,10)
+green.pendown()
+
+for turn in range(150):
+  x=1
+  red.forward(randint(1,5))
+  green.forward(randint(1,5))
+  blue.forward(randint(1,5))
+  yellow.forward(randint(1,5))
+  if(red.xcor() >=150):
+    red.left(180)
+    red.forward(6)
+    x+=1
+    continue
+  if(blue.xcor() >=150):
+    blue.left(180)
+    blue.forward(6)
+    x+=1
+    continue
+  if(yellow.xcor() >=150):
+    yellow.left(180)
+    yellow.forward(6)
+    x+=1
+    continue
+  if(green.xcor() >=150):
+    green.left(180)
+    green.forward(6)
+    x+=1
+    continue
+
+def drawbanner(x):
+  goto(-135,85)
+  color('yellow')
+  pendown()
+  begin_fill()
+  forward(270)
+  right(90)
+  forward(40)
+  right(90)
+  forward(270)
+  right(90)
+  forward(40)
+  right(90)
+  end_fill()
+  penup()
+  color('black')
+  goto(0,57.5)
+  write(x + " is the winner!", align='center')
+  forward(140)
+
+for turn in range(150):
+  red.forward(randint(1,5))
+  green.forward(randint(1,5))
+  blue.forward(randint(1,5))
+  yellow.forward(randint(1,5))
+  if(red.xcor() <=-140):
+    print("red won")
+    drawbanner("red")
+    red.right(3600)
+    break
+  if(blue.xcor() <=-140):
+    print("blue won")
+    drawbanner("blue")
+    blue.right(3600)
+    break
+  if(yellow.xcor() <=-140):
+    print("yellow won")
+    drawbanner("yellow")
+    yellow.right(3600)
+    break
+  if(green.xcor() <=-140):
+    print("green won")
+    drawbanner("green")
+    green.right(3600)
+    break
+</code>
+    <h2>Python Race 3(Low Quality)</h2>
+    <code>
+from turtle import *
+from random import randint
+
+speed(10)
+x=30
+circle(x,360)
+for i in range(4):
+  right(90)
+  forward(30)
+  left(90)
+  x+=30
+  circle(x,360)
+penup()
+
+red = Turtle()
+red.color('red')
+red.shape('turtle')
+red.penup()
+red.goto(0,-15)
+red.pendown()
+
+blue = Turtle()
+blue.color('blue')
+blue.shape('turtle')
+blue.penup()
+blue.goto(0,-45)
+blue.pendown()
+
+yellow = Turtle()
+yellow.color('yellow')
+yellow.shape('turtle')
+yellow.penup()
+yellow.goto(0,-75)
+yellow.pendown()
+
+green = Turtle()
+green.color('green')
+green.shape('turtle')
+green.penup()
+green.goto(0,-105)
+green.pendown()
+
+def drawbanner(x):
+  goto(-135,85)
+  color('yellow')
+  pendown()
+  begin_fill()
+  forward(270)
+  right(90)
+  forward(40)
+  right(90)
+  forward(270)
+  right(90)
+  forward(40)
+  right(90)
+  end_fill()
+  penup()
+  color('black')
+  goto(0,57.5)
+  write(x + " is the winner!", align='center')
+  forward(140)
+
+a = 1
+for i in range(500):
+  red.circle(45,randint(1,10))
+  blue.circle(75,randint(1,10))
+  yellow.circle(105,randint(1,10))
+  green.circle(135,randint(1,10))
+  if a == 1 and red.xcor() <= 0 and blue.xcor() <= 0 and yellow.xcor() <= 0 and green.xcor() <= 0:
+    a+=1
+    print(a)
+  if a == 2 and red.xcor() >= 0:
+    print("red won")
+    drawbanner("red")
+    red.right(3600)
+    break
+  if a == 2 and blue.xcor() >= 0:
+    print("blue won")
+    drawbanner("blue")
+    blue.right(3600)
+    break
+  if a == 2 and yellow.xcor() >= 0:
+    print("yellow won")
+    drawbanner("yellow")
+    yellow.right(3600)
+    break
+  if a == 2 and green.xcor() >= 0:
+    print("green won")
+    drawbanner("green")
+    green.right(3600)
+    break
+    </code>
+</pre>
